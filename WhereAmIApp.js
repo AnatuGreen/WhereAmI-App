@@ -39,9 +39,9 @@ const byId = function (id) {
   return document.getElementById(id);
 };
 
-let height = window.innerHeight;
-console.log(height);
-byId('body').style.height = `${height}px`;
+// let height = window.innerHeight;
+// console.log(height);
+// byId('body').style.height = `${height}px`;
 const CordsResultCont = document.querySelector('.CordsResultCont');
 const findByCords = byId('findByCords');
 const latInput = byId('latInput');
@@ -56,6 +56,17 @@ const whereAmI = function (lat, long) {
   )
     .then(response => {
       console.log(response);
+      if (!response.ok) {
+        throw new Error(
+          `
+          Oops!😢
+          Something went wrong with server request.
+          Maybe there is an error with the API call or the API key expired.
+          Please visit our FAQs to see possible causes/solutions of
+          errors like this.
+          If problem persists, send a DM to @AnatuGreen on Twitter`
+        );
+      }
       return response.json();
     })
     .then(jsonData => {
@@ -63,7 +74,10 @@ const whereAmI = function (lat, long) {
       console.log(addressFetched);
       addressRender(addressFetched);
     })
-    .catch(error => console.log(`error is: ${error}`));
+    .catch(error => {
+      console.log(`error is: ${error}`);
+      alert(error);
+    });
 };
 
 const whereByCords = function (lat, long) {
