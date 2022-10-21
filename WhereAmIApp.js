@@ -130,6 +130,10 @@ const getLocation = () => {
         `${position.coords.longitude}`
       );
     },
+    function () {
+      alert(`You declined to give out your location. No result will be given.
+    To reset this, reset permissions for this site: On Chrome and Edge: Settings > Cookies and Site Permisions > Recent Activity or ALl Sites > WhereAmIApp or LocalServer Address > Reset Permissions`);
+    },
     { enableHighAccuracy: true }
   );
 };

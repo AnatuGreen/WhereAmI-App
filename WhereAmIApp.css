@@ -78,6 +78,7 @@ h1 {
     transform: scale(0.9);
   }
 }
+
 .oval1Inner {
   width: 160px;
   height: 160px;
@@ -119,7 +120,24 @@ h1 {
   border-radius: 42px;
   background: radial-gradient(ellipse, #f80505 0%, #ff7b36 100%);
   background-blend-mode: normal;
+  animation: breathing-medium 4s ease-out infinite;
 }
+
+@keyframes breathing-medium {
+  0% {
+    /* pushes the sun down past the viewport */
+    transform: scale(1);
+  }
+  50% {
+    /* returns the sun to its default position */
+    transform: scale(0.8);
+  }
+  100% {
+    /* returns the sun to its default position */
+    transform: scale(0.9);
+  }
+}
+
 .outputContainer {
   height: 200px;
   width: 90%;
@@ -144,4 +162,15 @@ h1 {
   padding: 20px;
   font-size: 18px;
   line-height: 22px;
+}
+
+footer {
+  color: white;
+}
+
+footer a {
+  color: #ffffff;
+}
+
+@media screen {
 }
