@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="WhereAmIApp.css" />
+    <title>Where am I?</title>
+  </head>
+  <body id="body">
+    <h1>Where Am I?🙂</h1>
+    <div class="containerMain">
+      <section class="aside sideleft">
+        <div class="oval1">
+          <button id="findMeButton" class="oval1Inner">Find Me</button>
+        </div>
+        <div id="outputContainer" class="outputContainer"></div>
+      </section>
+      <section class="aside sideright">
+        <div class="innercontainer">
+          <input id="latInput" class="input" placeholder="Latitude" />
+          <input id="longInput" class="input" placeholder="Longitude" />
+          <button id="findByCords" class="findButton">Find Location</button>
+        </div>
+        <div class="CordsResultCont"></div>
+      </section>
+      <div class="address"></div>
+    </div>
+    <script src="WhereAmIApp.js"></script>
+  </body>
+</html>

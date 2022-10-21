@@ -1,0 +1,146 @@
+body {
+  background-image: url('world.jpg');
+  background-position: center;
+  /* background-repeat: no-repeat; */
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  color: aliceblue;
+}
+
+.containerMain {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* align-items: center; */
+  width: 95%;
+  background-color: aliceblue;
+  height: 95%;
+  opacity: 0.8;
+  border-radius: 15px;
+}
+
+.aside {
+}
+.sideleft {
+  background-color: red;
+  width: 50%;
+  min-width: 300px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  border-top-left-radius: 15px;
+}
+.sideright {
+  background-color: black;
+  width: 50%;
+  min-width: 300px;
+
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top-right-radius: 15px;
+}
+
+.oval1 {
+  width: 196px;
+  height: 196px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, #f80505 0%, #ff7b36 100%);
+  background-blend-mode: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15%;
+  cursor: zoom-in;
+  animation: breathing 4s ease-out infinite normal;
+}
+@keyframes breathing {
+  0% {
+    /* pushes the sun down past the viewport */
+    transform: scale(1);
+  }
+  50% {
+    /* returns the sun to its default position */
+    transform: scale(0.5);
+  }
+  100% {
+    /* returns the sun to its default position */
+    transform: scale(0.9);
+  }
+}
+.oval1Inner {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, #ea0d0d 20%, #f7f7f7 50%);
+  background-blend-mode: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  cursor: zoom-in;
+}
+
+.innercontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15%;
+}
+
+.input {
+  width: 400px;
+  margin-bottom: 30px;
+  height: 60px;
+  border-radius: 25px;
+  padding: 0 10px;
+  font-size: large;
+}
+
+.findButton {
+  /* position: absolute; */
+  left: 915px;
+  top: 406px;
+  width: 342px;
+  height: 85px;
+  color: #ffffff;
+  border-radius: 42px;
+  background: radial-gradient(ellipse, #f80505 0%, #ff7b36 100%);
+  background-blend-mode: normal;
+}
+.outputContainer {
+  height: 200px;
+  width: 90%;
+  background-color: rgba(12, 30, 45, 0.7);
+  margin-top: 100px;
+  border-radius: 15px;
+  opacity: 0;
+}
+.CordsResultCont {
+  height: 200px;
+  width: 90%;
+  background-color: rgba(12, 30, 45, 0.7);
+  margin-top: 100px;
+  border-radius: 15px;
+  opacity: 0;
+  backdrop-filter: blur(14px);
+  animation: 3s linear 1s slidein;
+}
+
+.addressText {
+  color: #f7f7f7;
+  padding: 20px;
+  font-size: 18px;
+  line-height: 22px;
+}
