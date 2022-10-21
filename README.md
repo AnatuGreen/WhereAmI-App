@@ -9,5 +9,7 @@ Please ge6t your own API key if you decide to clone and use or test this.
 
 - Created with html, css and vanilla Javascript.
 - Reverse geocoding API: www.geoapify.com
+- Countries API: RestCountries API
 - Started on 20/10/2022 and completed on 21/10/2022
 - What is left?: Media querries to make it responsive. Feel free to make a PR
+- Also add custom errors for the
