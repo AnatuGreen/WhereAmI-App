@@ -1,5 +1,6 @@
 # WhereAmI-App
 
+<img src='whereami.png'>
 - An app to find where you are currently or find an address by entering the coordinates.
 - You have to know the cords to use the part of finding by coords
 
