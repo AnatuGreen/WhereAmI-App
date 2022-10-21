@@ -164,6 +164,20 @@ h1 {
   line-height: 22px;
 }
 
+.flagContainer {
+  width: 100px;
+  height: 100px;
+}
+
+.addressAndCountContainer {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
 footer {
   color: white;
 }

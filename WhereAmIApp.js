@@ -71,8 +71,11 @@ const whereAmI = function (lat, long) {
     })
     .then(jsonData => {
       const addressFetched = jsonData.features[0].properties.formatted;
+      theCountryFetched = jsonData.features[0].properties.country;
+      console.log(jsonData);
       console.log(addressFetched);
       addressRender(addressFetched);
+      countryRender(`${theCountryFetched}`);
     })
     .catch(error => {
       console.log(`error is: ${error}`);
@@ -96,8 +99,10 @@ const whereByCords = function (lat, long) {
     })
     .then(jsonData => {
       const addressFetched = jsonData.features[0].properties.formatted;
+      theCountryFetched = jsonData.features[0].properties.country;
       console.log(addressFetched);
       addressRenderCords(addressFetched);
+      countryRender(`${theCountryFetched}`);
     })
     .catch(error => {
       alert(`error is: ${error}`);
@@ -106,29 +111,53 @@ const whereByCords = function (lat, long) {
     });
 };
 
+//The component that has the html that
 function addressRender(addr = 'Somewhere on Earth') {
-  const html = `<p class = 'addressText'>You have been found!<br> You are currently at:<br> ${addr}</p>`;
+  const html = `<div class ='addressAndCountContainer'><p class = 'addressText'>You have been found!<br> You are currently at:<br> ${addr}</p></div>`;
   return (addressDisplay.innerHTML = html);
 }
 
+//Create the element to display the flag, Use RestCountries API to get the country's flag and render it
+function countryRender(country) {
+  function renderCountryFlag(locality) {
+    const flagHtml = `<div class="flagContainer">
+<img src="${locality}" class="flagContainer"  />
+  </div>
+  `;
+    console.log(locality);
+    document
+      .querySelector('.addressText')
+      .insertAdjacentHTML('afterend', flagHtml);
+  }
+
+  fetch(`https://restcountries.com/v3.1/name/${country}`)
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+      renderCountryFlag(`${data[0].flags.png}`);
+    });
+}
+
+//Address render for when user enters their own coordinates
 function addressRenderCords(addr = 'Somewhere on Earth') {
-  const html = `<p class = 'addressText'>Located!<br> Address at:<br> ${addr}</p>`;
+  const html = `<div class ='addressAndCountContainer'><p class = 'addressText'>Located!<br> Address at:<br> ${addr}</p>div class ='addressAndCountContainer'>`;
   return (CordsResultCont.innerHTML = html);
 }
 
+//Eventlistener for the "Find Location" button
 findByCords.addEventListener('click', () => {
   CordsResultCont.style.opacity = 1;
   whereByCords(latInput.value, longInput.value);
 });
 
+//Get user location when they click "Find me" and accept the browser request. This is called inside findMeButton
 const getLocation = () => {
   navigator.geolocation.getCurrentPosition(
     function (position) {
       console.log(position);
-      return whereAmI(
-        `${position.coords.latitude}`,
-        `${position.coords.longitude}`
-      );
+      whereAmI(`${position.coords.latitude}`, `${position.coords.longitude}`);
     },
     function () {
       alert(`You declined to give out your location. No result will be given.
@@ -138,8 +167,8 @@ const getLocation = () => {
   );
 };
 
+//Call the getLocation function to get the user location and whereAmI. Also displays the container by raising opacity
 findMeButton.addEventListener('click', () => {
-  //get user's current location:
   getLocation();
   byId('outputContainer').style.opacity = 1;
 });
