@@ -1,4 +1,4 @@
-# WhereAmI-App
+# Where Am I App
 
 <img src='whereami.png'>
 - An app to find where you are currently or find an address by entering the coordinates.
@@ -10,5 +10,4 @@ Please ge6t your own API key if you decide to clone and use or test this.
 - Created with html, css and vanilla Javascript.
 - Reverse geocoding API: www.geoapify.com
 - Started on 20/10/2022 and completed on 21/10/2022
-
 - What is left?: Media querries to make it responsive. Feel free to make a PR
